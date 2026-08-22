@@ -35,4 +35,23 @@
     -->
   </PropertyGroup>
 
+  <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('.Demo'))">
+    <!--
+      .Demo (MAUI app) projects redirect obj/ and bin/ to a short path outside this deeply
+      nested workspace tree. Verified by execution as the actual fix, not a guess: the
+      Android build failed with APT2098/APT2261 ("failed to open file") on a resource this
+      SDK generates itself (microsoft_maui_essentials_fileprovider_file_paths.xml), which
+      aapt2.exe, a native tool with its own path-length ceiling independent of Windows'
+      own LongPathsEnabled setting, could not write once the intermediate path (deep
+      workspace root, plus patterns/<Pattern>/src/<Pattern>.Demo/obj/Debug/net10.0-android/
+      lp/<N>/jl/flat/...) grew past roughly 220 characters. Confirmed against a public
+      report of the identical error and fix: dotnet/android#7971. Renaming the pattern
+      folder shorter bought some margin but is not durable as pattern names grow; redirecting
+      the intermediate path is the standard, permanent fix for this class of Windows/Android
+      build failure.
+    -->
+    <BaseIntermediateOutputPath>C:\maui-obj\$(MSBuildProjectName)\obj\</BaseIntermediateOutputPath>
+    <BaseOutputPath>C:\maui-obj\$(MSBuildProjectName)\bin\</BaseOutputPath>
+  </PropertyGroup>
+
 </Project>

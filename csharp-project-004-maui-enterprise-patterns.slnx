@@ -1,5 +1,13 @@
 <Solution>
   <Folder Name="/patterns/" />
+  <Folder Name="/patterns/CommandBehavior/" />
+  <Folder Name="/patterns/CommandBehavior/src/">
+    <Project Path="patterns/CommandBehavior/src/CommandBehavior.Core/CommandBehavior.Core.csproj" />
+    <Project Path="patterns/CommandBehavior/src/CommandBehavior.Demo/CommandBehavior.Demo.csproj" />
+  </Folder>
+  <Folder Name="/patterns/CommandBehavior/tests/">
+    <Project Path="patterns/CommandBehavior/tests/CommandBehavior.Core.Tests/CommandBehavior.Core.Tests.csproj" />
+  </Folder>
   <Folder Name="/patterns/Mvvm/" />
   <Folder Name="/patterns/Mvvm/src/">
     <Project Path="patterns/Mvvm/src/Mvvm.Core/Mvvm.Core.csproj" />

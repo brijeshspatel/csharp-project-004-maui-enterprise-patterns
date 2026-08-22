@@ -25,12 +25,33 @@
     -->
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <!--
-      MauiVersion is supplied by the Microsoft.Maui.Sdk workload itself, not chosen here;
-      CPM accepts an MSBuild property as a PackageVersion value the same way it accepts a
-      literal.
+      Pinned explicitly to 10.0.100 (the latest available on NuGet at the time), rather than
+      to $(MauiVersion) as increment A originally had it. $(MauiVersion) resolves to 10.0.20,
+      the version bundled with the installed MAUI workloads, and CommunityToolkit.Maui 15.0.1
+      requires >= 10.0.90. Verified by execution during the Commanding and Behaviours
+      increment's specification review: a scratch project failed to restore against
+      $(MauiVersion) (NU1605, package downgrade) and restored and built clean once pinned
+      here. The alternative, updating the installed workloads, was not taken, as this is the
+      smaller, sufficient change and was re-verified not to regress the Mvvm pattern.
     -->
-    <PackageVersion Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+    <PackageVersion Include="Microsoft.Maui.Controls" Version="10.0.100" />
+    <!--
+      Pinned explicitly because CommunityToolkit.Maui's own dependency graph resolves a lower
+      floor (10.0.90) than Microsoft.Maui.Controls' pin above (10.0.100), and leaving it to
+      transitive resolution produced two Microsoft.Maui.Essentials versions in
+      CommandBehavior.Demo's restore graph, verified by execution to be the cause of an
+      Android resource-compile failure (AAPT2 could not open the fileprovider XML's compiled
+      output; the two versions' resource staging collided in the numbered "lp" folder). A
+      single explicit pin, matching Microsoft.Maui.Controls, removes the ambiguity.
+    -->
+    <PackageVersion Include="Microsoft.Maui.Essentials" Version="10.0.100" />
     <PackageVersion Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
+    <!--
+      Provides EventToCommandBehavior, used by the Commanding and Behaviours pattern to bridge
+      a control event that does not natively support commands (Entry.TextChanged) into the
+      same commanding model a Button's Command property already uses.
+    -->
+    <PackageVersion Include="CommunityToolkit.Maui" Version="15.0.1" />
   </ItemGroup>
 
 </Project>
