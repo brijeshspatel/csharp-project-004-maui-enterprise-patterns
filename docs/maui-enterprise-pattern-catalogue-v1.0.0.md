@@ -47,7 +47,7 @@ category.
 | Category | Entry | Status |
 |---|---|---|
 | Presentation & MVVM | [Model-View-ViewModel](../patterns/Mvvm/README.md) | confirmed, implemented |
-| Presentation & MVVM | Commanding and Behaviours | candidate |
+| Presentation & MVVM | [Commanding and Behaviours](../patterns/CommandBehavior/README.md) | confirmed, implemented |
 | Presentation & MVVM | Loosely-Coupled Messaging | candidate |
 | Presentation & MVVM | Navigation | candidate |
 | Presentation & MVVM | Validation | candidate |
