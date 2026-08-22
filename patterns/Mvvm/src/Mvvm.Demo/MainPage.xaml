@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mvvm.Demo.MainPage"
+             Title="Order detail">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,20"
+            Spacing="15">
+
+            <Label
+                Text="Customer reference"
+                Style="{StaticResource SubHeadline}" />
+
+            <Entry
+                Text="{Binding CustomerReference, Mode=TwoWay}"
+                Placeholder="Customer reference" />
+
+            <Label
+                Text="{Binding FirstError}"
+                TextColor="Red"
+                IsVisible="{Binding HasErrors}" />
+
+            <Button
+                Text="Save"
+                Command="{Binding SaveCommand}"
+                HorizontalOptions="Fill" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
