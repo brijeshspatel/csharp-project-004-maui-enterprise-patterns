@@ -1,0 +1,36 @@
+<Project>
+
+  <!--
+    Package versions for the whole solution, declared once.
+
+    With central management on, a project says which packages it needs and this file says
+    which version everyone gets. A project that pins its own version fails the build rather
+    than drifting quietly.
+  -->
+
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.9.0" />
+    <PackageVersion Include="xunit" Version="2.9.3" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="4.0.0" />
+    <PackageVersion Include="coverlet.collector" Version="10.0.1" />
+    <!--
+      CommunityToolkit.Mvvm 8.4.2 verified during specification review: `dotnet add package`
+      currently resolves this version, and the source-generated ObservableValidator/
+      NotifyDataErrorInfo/RelayCommand shape used by the MVVM pattern was built and run
+      against it before being adopted.
+    -->
+    <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+    <!--
+      MauiVersion is supplied by the Microsoft.Maui.Sdk workload itself, not chosen here;
+      CPM accepts an MSBuild property as a PackageVersion value the same way it accepts a
+      literal.
+    -->
+    <PackageVersion Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
+  </ItemGroup>
+
+</Project>

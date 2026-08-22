@@ -1,0 +1,38 @@
+<Project>
+
+  <!--
+    Settings shared by every project in this solution.
+
+    Unlike projects 001-003, TargetFramework(s) is NOT set here: .Core and test projects
+    build net10.0 alone, while .Demo projects multi-target the MAUI platform heads. A single
+    central TargetFramework would either force every .Core project to carry platform TFMs it
+    never uses, or force every .Demo project down to net10.0 alone and lose the platforms
+    entirely. This is the one documented MAUI-specific deviation from the inherited baseline
+    (reviewed prompt R4; specification DEC-7).
+  -->
+
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NeutralLanguage>en-GB</NeutralLanguage>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!--
+      Warnings fail the build. A reference implementation that compiles with
+      warnings teaches the warnings along with the patterns.
+    -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!--
+      Analyser rules are suppressed in the projects that need them, never here.
+      The project that earns the suppression carries the reason beside the code.
+    -->
+  </PropertyGroup>
+
+</Project>

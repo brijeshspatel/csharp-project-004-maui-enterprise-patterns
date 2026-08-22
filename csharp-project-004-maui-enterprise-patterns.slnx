@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/patterns/" />
+  <Folder Name="/patterns/Mvvm/" />
+  <Folder Name="/patterns/Mvvm/src/">
+    <Project Path="patterns/Mvvm/src/Mvvm.Core/Mvvm.Core.csproj" />
+    <Project Path="patterns/Mvvm/src/Mvvm.Demo/Mvvm.Demo.csproj" />
+  </Folder>
+  <Folder Name="/patterns/Mvvm/tests/">
+    <Project Path="patterns/Mvvm/tests/Mvvm.Core.Tests/Mvvm.Core.Tests.csproj" />
+  </Folder>
+</Solution>
