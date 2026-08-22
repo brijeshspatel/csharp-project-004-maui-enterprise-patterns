@@ -1,0 +1,81 @@
+---
+doc_id: maui-enterprise-pattern-catalogue
+title: Enterprise .NET MAUI pattern catalogue
+type: index
+version: 1.0.0
+status: active
+created: 2026-08-22
+updated: 2026-08-22
+owner: Brijesh Patel
+change_summary: Initial catalogue. Thirteen candidate entries across five categories, derived from the reference material's own table of contents. Only Model-View-ViewModel is implemented.
+---
+
+# Enterprise .NET MAUI pattern catalogue
+
+The contract for this repository. It records which patterns exist, how they are grouped, the gloss
+each category carries, and the section order every pattern README follows.
+
+**An entry that links to a folder rather than to a README is not yet done.** A `candidate` entry has
+not been confirmed for implementation by any specification; a `confirmed` entry has been specified,
+whether or not it is built yet.
+
+## Source
+
+Microsoft. *Enterprise Application Patterns using .NET MAUI*, Edition v2.0. Microsoft Developer
+Division, .NET, and Visual Studio product teams. Authored by Michael Stonis (Eight-Bot); reviewed
+by James Montemagno and David Pine (Microsoft). Retrieved 2026-08-22.
+
+Used for context and grounding. Every entry is verified against current, officially supported
+Microsoft guidance before being confirmed — the reference material is a starting point, not
+reproduced blindly.
+
+## Categories
+
+| Category | Gloss |
+|---|---|
+| **Presentation & MVVM** | Structuring the view layer so it is testable, declarative and decoupled from platform UI |
+| **Application Infrastructure** | Composing and configuring the application itself, independent of any one feature |
+| **Data & Integration** | Reaching external systems and services the application depends on |
+| **Resilience & Connectivity** | Surviving the failures a networked mobile client actually experiences |
+| **Security** | Establishing and enforcing who the application is acting for, and what they may do |
+
+Testing is not a category. It is cross-cutting practice, mandatory for every entry regardless of
+category.
+
+## Entries
+
+| Category | Entry | Status |
+|---|---|---|
+| Presentation & MVVM | [Model-View-ViewModel](../patterns/Mvvm/README.md) | confirmed, implemented |
+| Presentation & MVVM | Commanding and Behaviours | candidate |
+| Presentation & MVVM | Loosely-Coupled Messaging | candidate |
+| Presentation & MVVM | Navigation | candidate |
+| Presentation & MVVM | Validation | candidate |
+| Application Infrastructure | Dependency Injection | candidate |
+| Application Infrastructure | Application Settings Management | candidate |
+| Data & Integration | Accessing Remote Data (REST) | candidate |
+| Data & Integration | Containerized Service Integration | candidate |
+| Resilience & Connectivity | Retry | candidate |
+| Resilience & Connectivity | Circuit Breaker | candidate |
+| Security | Authentication | candidate |
+| Security | Authorization | candidate |
+
+## README section order
+
+Every pattern README, starting with Model-View-ViewModel, follows this order:
+
+| Section | Contains |
+|---|---|
+| Title and subtitle | The pattern, and beneath it its category and that category's gloss above, worded identically |
+| Intent | One sentence: the problem this pattern addresses |
+| The problem and context | The business or technical context |
+| The idiomatic approach | The current-guidance implementation |
+| The manual alternative, where the reference material draws one | Only where applicable |
+| Why the idiomatic approach is preferable | What improved, checkable against the code |
+| Architecture and components | Participants, dependencies, a Mermaid diagram |
+| When to apply it | Conditions that make it the right choice |
+| When not to — over-application | Misuse and over-engineering, not optional |
+| Production-readiness considerations | The applicable subset of the workspace's quality list |
+| Trade-offs | What it buys and what it costs |
+| Relationships | Other catalogue entries and related design patterns — prose and diagrams only, no code reference |
+| What the tests assert | What the tests are about, never how many |
