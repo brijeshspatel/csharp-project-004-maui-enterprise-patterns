@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!--
+    No package. System.Net.Http and System.Net.Http.Json are both in the framework.
+    IHttpClientFactory would need Microsoft.Extensions.Http, which is not pinned for this
+    repository; see this pattern's README for why it is described rather than used.
+  -->
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" />
+  </ItemGroup>
+
+</Project>

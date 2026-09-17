@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:core="clr-namespace:RemoteData.Core;assembly=RemoteData.Core"
+             x:Class="RemoteData.Demo.MainPage"
+             x:Name="Root"
+             Title="Orders">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,20" Spacing="15">
+
+            <Label Text="Orders from the service" Style="{StaticResource SubHeadline}" />
+
+            <!-- Said plainly, because canned orders returned through a real HttpClient look exactly
+                 like fetched ones. Nothing in this repository calls a service. -->
+            <Label Text="Served locally by SampleDataHandler. Nothing here reaches a network."
+                   FontSize="13"
+                   TextColor="Gray" />
+
+            <Button Text="Refresh"
+                    Command="{Binding Source={x:Reference Root}, Path=Orders.RefreshCommand}" />
+
+            <Label Text="{Binding Source={x:Reference Root}, Path=Orders.Status}" />
+
+            <!-- Shown when the answer is the last one received rather than a current one. -->
+            <Label Text="This list is not current."
+                   TextColor="Orange"
+                   IsVisible="{Binding Source={x:Reference Root}, Path=Orders.IsShowingStaleData}" />
+
+            <CollectionView ItemsSource="{Binding Source={x:Reference Root}, Path=Orders.Orders}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="core:OrderDto">
+                        <HorizontalStackLayout Padding="0,4" Spacing="12">
+                            <Label Text="{Binding CustomerReference}" WidthRequest="120" />
+                            <Label Text="{Binding Total, StringFormat='{0:C}'}" />
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

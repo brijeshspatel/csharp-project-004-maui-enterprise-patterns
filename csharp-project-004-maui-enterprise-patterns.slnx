@@ -48,6 +48,14 @@
   <Folder Name="/patterns/AppSettings/tests/">
     <Project Path="patterns/AppSettings/tests/AppSettings.Core.Tests/AppSettings.Core.Tests.csproj" />
   </Folder>
+  <Folder Name="/patterns/RemoteData/" />
+  <Folder Name="/patterns/RemoteData/src/">
+    <Project Path="patterns/RemoteData/src/RemoteData.Core/RemoteData.Core.csproj" />
+    <Project Path="patterns/RemoteData/src/RemoteData.Demo/RemoteData.Demo.csproj" />
+  </Folder>
+  <Folder Name="/patterns/RemoteData/tests/">
+    <Project Path="patterns/RemoteData/tests/RemoteData.Core.Tests/RemoteData.Core.Tests.csproj" />
+  </Folder>
   <Folder Name="/patterns/Mvvm/" />
   <Folder Name="/patterns/Mvvm/src/">
     <Project Path="patterns/Mvvm/src/Mvvm.Core/Mvvm.Core.csproj" />
