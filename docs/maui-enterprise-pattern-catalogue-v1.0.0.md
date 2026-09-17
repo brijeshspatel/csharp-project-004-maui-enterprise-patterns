@@ -7,7 +7,7 @@ status: active
 created: 2026-08-22
 updated: 2026-09-17
 owner: Brijesh Patel
-change_summary: Thirteen entries across five categories. Ten are implemented and three remain candidates. Presentation & MVVM, Application Infrastructure and Data & Integration are complete; Circuit Breaker and the two Security entries remain. The version stays 1.0.0 deliberately: the filename carries it, and both README.md and tools/pattern_relationship_check.py cite that path.
+change_summary: Thirteen entries across five categories. Eleven are implemented and two remain candidates. Presentation & MVVM, Application Infrastructure, Data & Integration and Resilience & Connectivity are complete; only the two Security entries remain. The version stays 1.0.0 deliberately: the filename carries it, and both README.md and tools/pattern_relationship_check.py cite that path.
 ---
 
 # Enterprise .NET MAUI pattern catalogue
@@ -56,7 +56,7 @@ category.
 | Data & Integration | [Accessing Remote Data (REST)](../patterns/RemoteData/README.md) | confirmed, implemented |
 | Data & Integration | [Containerized Service Integration](../patterns/ContainerServices/README.md) | confirmed, implemented |
 | Resilience & Connectivity | [Retry](../patterns/Retry/README.md) | confirmed, implemented |
-| Resilience & Connectivity | Circuit Breaker | candidate |
+| Resilience & Connectivity | [Circuit Breaker](../patterns/CircuitBreaker/README.md) | confirmed, implemented |
 | Security | Authentication | candidate |
 | Security | Authorization | candidate |
 

@@ -72,6 +72,14 @@
   <Folder Name="/patterns/Retry/tests/">
     <Project Path="patterns/Retry/tests/Retry.Core.Tests/Retry.Core.Tests.csproj" />
   </Folder>
+  <Folder Name="/patterns/CircuitBreaker/" />
+  <Folder Name="/patterns/CircuitBreaker/src/">
+    <Project Path="patterns/CircuitBreaker/src/CircuitBreaker.Core/CircuitBreaker.Core.csproj" />
+    <Project Path="patterns/CircuitBreaker/src/CircuitBreaker.Demo/CircuitBreaker.Demo.csproj" />
+  </Folder>
+  <Folder Name="/patterns/CircuitBreaker/tests/">
+    <Project Path="patterns/CircuitBreaker/tests/CircuitBreaker.Core.Tests/CircuitBreaker.Core.Tests.csproj" />
+  </Folder>
   <Folder Name="/patterns/Mvvm/" />
   <Folder Name="/patterns/Mvvm/src/">
     <Project Path="patterns/Mvvm/src/Mvvm.Core/Mvvm.Core.csproj" />

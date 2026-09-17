@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CircuitBreaker.Demo.MainPage"
+             x:Name="Root"
+             Title="Circuit breaker">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,20" Spacing="15">
+
+            <Label Text="A service behind a breaker" Style="{StaticResource SubHeadline}" />
+
+            <Label Text="Three consecutive failures open the circuit for fifteen seconds. Nothing is called — the outcome is decided in the composition root, and no request leaves this machine."
+                   FontSize="13"
+                   TextColor="Gray" />
+
+            <HorizontalStackLayout Spacing="10">
+                <Switch IsToggled="{Binding Source={x:Reference Root}, Path=ServiceIsHealthy, Mode=TwoWay}" />
+                <Label Text="The service is healthy" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Button Text="Call the service"
+                    Command="{Binding Source={x:Reference Root}, Path=Health.CallCommand}" />
+
+            <!-- A breaker is invisible when it works: the user sees a fast failure and assumes the
+                 service is broken. Showing the state turns that into "it is being left alone". -->
+            <Label Text="{Binding Source={x:Reference Root}, Path=Health.State, StringFormat='Circuit: {0}'}"
+                   FontAttributes="Bold" />
+
+            <Label Text="{Binding Source={x:Reference Root}, Path=Health.ConsecutiveFailures, StringFormat='Consecutive failures: {0}'}" />
+
+            <Label Text="{Binding Source={x:Reference Root}, Path=Health.NextAttempt, StringFormat='Next attempt allowed at {0}'}"
+                   TextColor="Orange" />
+
+            <Label Text="{Binding Source={x:Reference Root}, Path=Health.Status}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
