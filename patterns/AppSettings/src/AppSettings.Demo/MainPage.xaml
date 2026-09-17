@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppSettings.Demo.MainPage"
+             x:Name="Root"
+             Title="Settings">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,20" Spacing="15">
+
+            <Label Text="Application settings" Style="{StaticResource SubHeadline}" />
+
+            <!-- Shown only when a stored value was outside what this version allows. -->
+            <Label Text="{Binding Source={x:Reference Root}, Path=Settings.Notice}"
+                   TextColor="Orange" />
+
+            <HorizontalStackLayout Spacing="10">
+                <Switch IsToggled="{Binding Source={x:Reference Root}, Path=Settings.NotificationsEnabled, Mode=TwoWay}" />
+                <Label Text="Notifications" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Label Text="Rows per page" />
+            <Entry Keyboard="Numeric"
+                   Text="{Binding Source={x:Reference Root}, Path=Settings.PageSize, Mode=TwoWay}" />
+
+            <Label Text="Default warehouse" />
+            <Entry Text="{Binding Source={x:Reference Root}, Path=Settings.Warehouse, Mode=TwoWay}" />
+
+            <Label Text="{Binding Source={x:Reference Root}, Path=Settings.LastSynchronised, StringFormat='Last synchronised {0:u}'}" />
+
+            <Button Text="Save"
+                    Command="{Binding Source={x:Reference Root}, Path=Settings.SaveCommand}" />
+
+            <Button Text="Reset all"
+                    Command="{Binding Source={x:Reference Root}, Path=Settings.ResetAllCommand}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

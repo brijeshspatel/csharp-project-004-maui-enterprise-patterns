@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!--
+    No reference to Microsoft.Maui.Essentials, and that is deliberate rather than impossible.
+    It ships a plain net10.0 library, so a reference here would compile; calling it throws
+    NotImplementedInReferenceAssemblyException at run time. See this pattern's README.
+  -->
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" />
+  </ItemGroup>
+
+</Project>

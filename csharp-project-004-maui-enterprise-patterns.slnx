@@ -40,6 +40,14 @@
   <Folder Name="/patterns/DependencyInjection/tests/">
     <Project Path="patterns/DependencyInjection/tests/DependencyInjection.Core.Tests/DependencyInjection.Core.Tests.csproj" />
   </Folder>
+  <Folder Name="/patterns/AppSettings/" />
+  <Folder Name="/patterns/AppSettings/src/">
+    <Project Path="patterns/AppSettings/src/AppSettings.Core/AppSettings.Core.csproj" />
+    <Project Path="patterns/AppSettings/src/AppSettings.Demo/AppSettings.Demo.csproj" />
+  </Folder>
+  <Folder Name="/patterns/AppSettings/tests/">
+    <Project Path="patterns/AppSettings/tests/AppSettings.Core.Tests/AppSettings.Core.Tests.csproj" />
+  </Folder>
   <Folder Name="/patterns/Mvvm/" />
   <Folder Name="/patterns/Mvvm/src/">
     <Project Path="patterns/Mvvm/src/Mvvm.Core/Mvvm.Core.csproj" />
