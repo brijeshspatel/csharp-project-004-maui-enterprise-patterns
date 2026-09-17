@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:core="clr-namespace:ContainerServices.Core;assembly=ContainerServices.Core"
+             x:Class="ContainerServices.Demo.MainPage"
+             x:Name="Root"
+             Title="Service endpoints">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,20" Spacing="15">
+
+            <Label Text="Where the containers are reached from" Style="{StaticResource SubHeadline}" />
+
+            <!-- The address rule is invisible until it is wrong, and then it looks like the
+                 service being down. Showing it makes it inspectable on the device. -->
+            <Label Text="{Binding Source={x:Reference Root}, Path=Catalogue.Platform, StringFormat='Platform: {0}'}" />
+            <Label Text="{Binding Source={x:Reference Root}, Path=Catalogue.Host, StringFormat='Host: {0}'}" />
+
+            <Label Text="Nothing is called. No container is started, and no request is made."
+                   FontSize="13"
+                   TextColor="Gray" />
+
+            <!-- The one case no address rule can solve. Empty on every other platform. -->
+            <Label Text="{Binding Source={x:Reference Root}, Path=Catalogue.Caveat}"
+                   TextColor="Orange" />
+
+            <CollectionView ItemsSource="{Binding Source={x:Reference Root}, Path=Catalogue.Endpoints}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="core:ResolvedEndpoint">
+                        <VerticalStackLayout Padding="0,6">
+                            <Label Text="{Binding Name}" FontAttributes="Bold" />
+                            <Label Text="{Binding BaseAddress}" FontSize="13" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

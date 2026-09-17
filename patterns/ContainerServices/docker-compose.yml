@@ -1,0 +1,30 @@
+# DOCUMENTATION, NOT INFRASTRUCTURE.
+#
+# This file is never executed by anything in this repository, and no container is built, pulled or
+# started by any run here. It exists so a reader can see what the ports in ServiceEndpoints
+# correspond to, because an address rule is hard to follow without the thing it addresses.
+#
+# The images below are placeholders. Running `docker compose up` in this directory would fail to
+# pull them, which is the intended outcome: this is a diagram written in YAML.
+#
+# The ports are the contract. ContainerServices.Core resolves:
+#   orders    -> https://10.0.2.2:5001/  on Android, https://localhost:5001/ elsewhere
+#   catalogue -> https://10.0.2.2:5002/  on Android, https://localhost:5002/ elsewhere
+
+services:
+
+  orders:
+    image: example/orders-service:placeholder
+    ports:
+      # The published host port is what the MAUI client resolves. The container port is the
+      # service's own, and the client never sees it.
+      - "5001:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  catalogue:
+    image: example/catalogue-service:placeholder
+    ports:
+      - "5002:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
