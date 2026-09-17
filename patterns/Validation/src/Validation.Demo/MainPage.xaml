@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:core="clr-namespace:Validation.Core;assembly=Validation.Core"
+             x:Class="Validation.Demo.MainPage"
+             x:Name="Root"
+             Title="Purchase requisition">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,20" Spacing="12">
+
+            <Label Text="Raise a requisition" Style="{StaticResource SubHeadline}" />
+
+            <Label Text="Nothing is marked until you change it. Submit checks everything."
+                   FontSize="13" />
+
+            <Entry Placeholder="Requested by"
+                   Text="{Binding Source={x:Reference Root}, Path=Form.RequestedBy, Mode=TwoWay}" />
+
+            <Entry Placeholder="Quantity"
+                   Keyboard="Numeric"
+                   Text="{Binding Source={x:Reference Root}, Path=Form.Quantity, Mode=TwoWay}" />
+
+            <Entry Placeholder="Unit price"
+                   Keyboard="Numeric"
+                   Text="{Binding Source={x:Reference Root}, Path=Form.UnitPrice, Mode=TwoWay}" />
+
+            <Label Text="{Binding Source={x:Reference Root}, Path=Form.Total, StringFormat='Total {0:C}'}" />
+
+            <DatePicker Date="{Binding Source={x:Reference Root}, Path=OrderedOnDate, Mode=TwoWay}" />
+            <DatePicker Date="{Binding Source={x:Reference Root}, Path=RequiredByDate, Mode=TwoWay}" />
+
+            <!-- Every current error, not only the first. GetErrors is a method, so the view model
+                 exposes this as a property for binding. -->
+            <Label Text="{Binding Source={x:Reference Root}, Path=Form.ErrorSummary}"
+                   TextColor="Red" />
+
+            <Button Text="Submit"
+                    Command="{Binding Source={x:Reference Root}, Path=Form.SubmitCommand}" />
+
+            <Button Text="Reset"
+                    Command="{Binding Source={x:Reference Root}, Path=Form.ResetCommand}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

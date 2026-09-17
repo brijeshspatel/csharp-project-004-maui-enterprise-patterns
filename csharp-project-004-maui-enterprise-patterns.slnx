@@ -24,6 +24,14 @@
   <Folder Name="/patterns/Navigation/tests/">
     <Project Path="patterns/Navigation/tests/Navigation.Core.Tests/Navigation.Core.Tests.csproj" />
   </Folder>
+  <Folder Name="/patterns/Validation/" />
+  <Folder Name="/patterns/Validation/src/">
+    <Project Path="patterns/Validation/src/Validation.Core/Validation.Core.csproj" />
+    <Project Path="patterns/Validation/src/Validation.Demo/Validation.Demo.csproj" />
+  </Folder>
+  <Folder Name="/patterns/Validation/tests/">
+    <Project Path="patterns/Validation/tests/Validation.Core.Tests/Validation.Core.Tests.csproj" />
+  </Folder>
   <Folder Name="/patterns/Mvvm/" />
   <Folder Name="/patterns/Mvvm/src/">
     <Project Path="patterns/Mvvm/src/Mvvm.Core/Mvvm.Core.csproj" />
