@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <!--
-    No package, and deliberately no reference to Retry.Core. The pattern projects here do not
-    reference one another; the composition between the two is described in the README.
+    No package, and deliberately no reference to any other pattern project. The pattern projects
+    here do not reference one another; where two entries compose, the composition is described in
+    the README and implemented by neither.
   -->
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" />
