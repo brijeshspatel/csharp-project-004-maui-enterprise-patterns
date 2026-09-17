@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Authentication.Demo.MainPage"
+             x:Name="Root"
+             Title="Authentication">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,20" Spacing="15">
+
+            <Label Text="The lifetime of an access token" Style="{StaticResource SubHeadline}" />
+
+            <Label Text="No identity provider is reached. The session is fabricated on this device, and every value in it says so. Sign in, use the token, let it expire, and sign out."
+                   FontSize="13"
+                   TextColor="Gray" />
+
+            <Button Text="Sign in"
+                    Command="{Binding Source={x:Reference Root}, Path=Session.SignInCommand}" />
+
+            <Button Text="Use the token"
+                    Command="{Binding Source={x:Reference Root}, Path=Session.UseTokenCommand}" />
+
+            <Button Text="Sign out"
+                    Command="{Binding Source={x:Reference Root}, Path=Session.SignOutCommand}" />
+
+            <HorizontalStackLayout Spacing="10">
+                <Switch IsToggled="{Binding Source={x:Reference Root}, Path=ProviderRefusesRefresh, Mode=TwoWay}" />
+                <Label Text="The provider refuses to refresh" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Label Text="{Binding Source={x:Reference Root}, Path=Session.IsSignedIn, StringFormat='Signed in: {0}'}"
+                   FontAttributes="Bold" />
+
+            <!-- The status prints the token OBJECT, which redacts itself. Changing this to show the
+                 value is the single-line change that turns a reference implementation into a
+                 credential disclosure. -->
+            <Label Text="{Binding Source={x:Reference Root}, Path=Session.Status}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

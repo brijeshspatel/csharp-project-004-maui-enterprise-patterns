@@ -80,6 +80,14 @@
   <Folder Name="/patterns/CircuitBreaker/tests/">
     <Project Path="patterns/CircuitBreaker/tests/CircuitBreaker.Core.Tests/CircuitBreaker.Core.Tests.csproj" />
   </Folder>
+  <Folder Name="/patterns/Authentication/" />
+  <Folder Name="/patterns/Authentication/src/">
+    <Project Path="patterns/Authentication/src/Authentication.Core/Authentication.Core.csproj" />
+    <Project Path="patterns/Authentication/src/Authentication.Demo/Authentication.Demo.csproj" />
+  </Folder>
+  <Folder Name="/patterns/Authentication/tests/">
+    <Project Path="patterns/Authentication/tests/Authentication.Core.Tests/Authentication.Core.Tests.csproj" />
+  </Folder>
   <Folder Name="/patterns/Mvvm/" />
   <Folder Name="/patterns/Mvvm/src/">
     <Project Path="patterns/Mvvm/src/Mvvm.Core/Mvvm.Core.csproj" />
