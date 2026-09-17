@@ -88,6 +88,14 @@
   <Folder Name="/patterns/Authentication/tests/">
     <Project Path="patterns/Authentication/tests/Authentication.Core.Tests/Authentication.Core.Tests.csproj" />
   </Folder>
+  <Folder Name="/patterns/Authorization/" />
+  <Folder Name="/patterns/Authorization/src/">
+    <Project Path="patterns/Authorization/src/Authorization.Core/Authorization.Core.csproj" />
+    <Project Path="patterns/Authorization/src/Authorization.Demo/Authorization.Demo.csproj" />
+  </Folder>
+  <Folder Name="/patterns/Authorization/tests/">
+    <Project Path="patterns/Authorization/tests/Authorization.Core.Tests/Authorization.Core.Tests.csproj" />
+  </Folder>
   <Folder Name="/patterns/Mvvm/" />
   <Folder Name="/patterns/Mvvm/src/">
     <Project Path="patterns/Mvvm/src/Mvvm.Core/Mvvm.Core.csproj" />

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Authorization.Demo.MainPage"
+             x:Name="Root"
+             Title="Authorization">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,20" Spacing="15">
+
+            <Label Text="What this screen offers, and why" Style="{StaticResource SubHeadline}" />
+
+            <!-- The sentence the whole entry rests on. It is on the screen, not only in the README,
+                 because a reader who only runs the demonstration should still leave with it. -->
+            <Label Text="These checks decide what this screen offers. They do not enforce anything — the server does, and it is the only decision anybody is obliged to respect."
+                   FontSize="13"
+                   TextColor="Gray" />
+
+            <Button Text="Refresh permissions"
+                    Command="{Binding Source={x:Reference Root}, Path=Detail.RefreshCommand}" />
+
+            <Label Text="{Binding Source={x:Reference Root}, Path=Detail.Status}"
+                   FontAttributes="Bold" />
+
+            <HorizontalStackLayout Spacing="10">
+                <Switch IsToggled="{Binding Source={x:Reference Root}, Path=ServerGrantsApproval, Mode=TwoWay}" />
+                <Label Text="The server grants the approval permission" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="10">
+                <Switch IsToggled="{Binding Source={x:Reference Root}, Path=ServerIsUnreachable, Mode=TwoWay}" />
+                <Label Text="The server cannot be reached" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="10">
+                <Switch IsToggled="{Binding Source={x:Reference Root}, Path=ShowOwnRequisition, Mode=TwoWay}" />
+                <Label Text="Show a requisition this user raised" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Label Text="{Binding Source={x:Reference Root}, Path=Detail.Heading}"
+                   FontAttributes="Bold" />
+
+            <!-- Disabled and explained, rather than hidden. The trade-off is real and the README
+                 states it: an explanation helps, and an explanation also discloses. -->
+            <Button Text="Approve"
+                    IsEnabled="{Binding Source={x:Reference Root}, Path=Detail.CanApprove}" />
+
+            <Label Text="{Binding Source={x:Reference Root}, Path=Detail.ApproveExplanation}"
+                   TextColor="Orange" />
+
+            <Button Text="Cancel it"
+                    IsEnabled="{Binding Source={x:Reference Root}, Path=Detail.CanCancel}" />
+
+            <Label Text="{Binding Source={x:Reference Root}, Path=Detail.CancelExplanation}"
+                   TextColor="Orange" />
+
+            <Label Text="{Binding Source={x:Reference Root}, Path=Detail.PermissionsAreStale, StringFormat='Permissions are stale: {0}'}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
