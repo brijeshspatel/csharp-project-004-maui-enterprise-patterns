@@ -5,9 +5,9 @@ type: index
 version: 1.0.0
 status: active
 created: 2026-08-22
-updated: 2026-08-27
+updated: 2026-09-17
 owner: Brijesh Patel
-change_summary: Thirteen entries across five categories. Three are implemented — Model-View-ViewModel, Commanding and Behaviours, and Loosely-Coupled Messaging — and ten remain candidates. The version stays 1.0.0 deliberately: the filename carries it, and both README.md and tools/pattern_relationship_check.py cite that path.
+change_summary: Thirteen entries across five categories. Four are implemented — Model-View-ViewModel, Commanding and Behaviours, Loosely-Coupled Messaging, and Navigation — and nine remain candidates. The version stays 1.0.0 deliberately: the filename carries it, and both README.md and tools/pattern_relationship_check.py cite that path.
 ---
 
 # Enterprise .NET MAUI pattern catalogue
@@ -49,7 +49,7 @@ category.
 | Presentation & MVVM | [Model-View-ViewModel](../patterns/Mvvm/README.md) | confirmed, implemented |
 | Presentation & MVVM | [Commanding and Behaviours](../patterns/CommandBehavior/README.md) | confirmed, implemented |
 | Presentation & MVVM | [Loosely-Coupled Messaging](../patterns/Messaging/README.md) | confirmed, implemented |
-| Presentation & MVVM | Navigation | candidate |
+| Presentation & MVVM | [Navigation](../patterns/Navigation/README.md) | confirmed, implemented |
 | Presentation & MVVM | Validation | candidate |
 | Application Infrastructure | Dependency Injection | candidate |
 | Application Infrastructure | Application Settings Management | candidate |

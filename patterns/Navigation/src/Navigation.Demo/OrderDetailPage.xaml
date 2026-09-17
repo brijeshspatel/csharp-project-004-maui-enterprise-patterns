@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:core="clr-namespace:Navigation.Core;assembly=Navigation.Core"
+             x:Class="Navigation.Demo.OrderDetailPage"
+             x:DataType="core:OrderDetailNavigationViewModel"
+             Title="Order detail">
+
+    <VerticalStackLayout Padding="30,20" Spacing="15">
+
+        <Label Text="Editable order" Style="{StaticResource SubHeadline}" />
+
+        <Label Text="{Binding Order.CustomerReference, StringFormat='Customer {0}'}" />
+        <Label Text="{Binding Order.Total, StringFormat='Total {0:C}'}" />
+        <Label Text="{Binding Order.State, StringFormat='State {0}'}" />
+
+        <!-- Shown only when the navigation carried nothing usable. -->
+        <Label Text="{Binding Problem}" TextColor="Red" />
+
+        <Button Text="Back" Command="{Binding GoBackCommand}" HorizontalOptions="Fill" />
+
+    </VerticalStackLayout>
+
+</ContentPage>

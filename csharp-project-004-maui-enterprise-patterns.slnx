@@ -16,6 +16,14 @@
   <Folder Name="/patterns/Messaging/tests/">
     <Project Path="patterns/Messaging/tests/Messaging.Core.Tests/Messaging.Core.Tests.csproj" />
   </Folder>
+  <Folder Name="/patterns/Navigation/" />
+  <Folder Name="/patterns/Navigation/src/">
+    <Project Path="patterns/Navigation/src/Navigation.Core/Navigation.Core.csproj" />
+    <Project Path="patterns/Navigation/src/Navigation.Demo/Navigation.Demo.csproj" />
+  </Folder>
+  <Folder Name="/patterns/Navigation/tests/">
+    <Project Path="patterns/Navigation/tests/Navigation.Core.Tests/Navigation.Core.Tests.csproj" />
+  </Folder>
   <Folder Name="/patterns/Mvvm/" />
   <Folder Name="/patterns/Mvvm/src/">
     <Project Path="patterns/Mvvm/src/Mvvm.Core/Mvvm.Core.csproj" />

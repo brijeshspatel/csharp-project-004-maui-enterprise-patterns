@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:core="clr-namespace:Navigation.Core;assembly=Navigation.Core"
+             x:Class="Navigation.Demo.MainPage"
+             x:Name="Root"
+             Title="Orders">
+
+    <VerticalStackLayout Padding="30,20" Spacing="15">
+
+        <Label Text="Open an order" Style="{StaticResource SubHeadline}" />
+
+        <Label Text="An outstanding order opens for editing. A cancelled one opens read-only, and the list decides which."
+               FontSize="13" />
+
+        <CollectionView ItemsSource="{Binding Source={x:Reference Root}, Path=List.Orders}">
+            <CollectionView.ItemTemplate>
+                <!-- x:DataType makes these compiled bindings. Without it the XAML compiler cannot
+                     resolve the names and reports MAUIG2045, which this repository treats as an
+                     error rather than accepting reflection at run time. -->
+                <DataTemplate x:DataType="core:OrderSummary">
+                    <Button Text="{Binding CustomerReference}"
+                            CommandParameter="{Binding .}"
+                            Command="{Binding Source={x:Reference Root}, Path=List.OpenOrderCommand}"
+                            Margin="0,4" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+
+</ContentPage>
