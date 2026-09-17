@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:core="clr-namespace:Retry.Core;assembly=Retry.Core"
+             x:Class="Retry.Demo.MainPage"
+             x:Name="Root"
+             Title="Retry">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,20" Spacing="15">
+
+            <Label Text="A flaky operation" Style="{StaticResource SubHeadline}" />
+
+            <Label Text="It fails twice and then works. Nothing is called — the outcome is decided in the composition root, and no request leaves this machine."
+                   FontSize="13"
+                   TextColor="Gray" />
+
+            <Button Text="Run"
+                    Command="{Binding Source={x:Reference Root}, Path=Operation.RunCommand}" />
+
+            <Label Text="{Binding Source={x:Reference Root}, Path=Operation.Status}" />
+
+            <!-- A retry is invisible when it works, which is why a user reports "it was slow"
+                 rather than "it failed twice". -->
+            <CollectionView ItemsSource="{Binding Source={x:Reference Root}, Path=Operation.Attempts}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="core:AttemptRecord">
+                        <HorizontalStackLayout Padding="0,4" Spacing="12">
+                            <Label Text="{Binding Attempt, StringFormat='Attempt {0}'}" WidthRequest="90" />
+                            <Label Text="{Binding Outcome}" />
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

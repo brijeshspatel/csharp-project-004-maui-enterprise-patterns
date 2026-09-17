@@ -64,6 +64,14 @@
   <Folder Name="/patterns/ContainerServices/tests/">
     <Project Path="patterns/ContainerServices/tests/ContainerServices.Core.Tests/ContainerServices.Core.Tests.csproj" />
   </Folder>
+  <Folder Name="/patterns/Retry/" />
+  <Folder Name="/patterns/Retry/src/">
+    <Project Path="patterns/Retry/src/Retry.Core/Retry.Core.csproj" />
+    <Project Path="patterns/Retry/src/Retry.Demo/Retry.Demo.csproj" />
+  </Folder>
+  <Folder Name="/patterns/Retry/tests/">
+    <Project Path="patterns/Retry/tests/Retry.Core.Tests/Retry.Core.Tests.csproj" />
+  </Folder>
   <Folder Name="/patterns/Mvvm/" />
   <Folder Name="/patterns/Mvvm/src/">
     <Project Path="patterns/Mvvm/src/Mvvm.Core/Mvvm.Core.csproj" />
