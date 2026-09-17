@@ -480,3 +480,49 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+## Everything below this line is the machinery this repository was made with rather than
+## the work: agent configuration, workflow state, capture material and the configuration
+## files of checkers that are not themselves part of the project.
+##
+## None of it is needed to build, test, run or read this repository, and a reader who clones
+## it should get the thirteen patterns rather than the workshop they were made in. The rules
+## are listed by name rather than by wildcard so that adding a tool means adding a line here
+## deliberately, and so that a future `config/` or `tools/` entry that IS part of the project
+## is not swallowed by accident.
+
+# Agent and assistant configuration
+.claude/
+.aia/
+CLAUDE.md
+AGENTS.md
+GEMINI.md
+.cursor/
+.cursorrules
+.clinerules
+.continue/
+.codeium/
+.aider*
+.windsurfrules
+.roo/
+.github/copilot/
+.github/instructions/
+.github/chatmodes/
+copilot-instructions.md
+
+# Workflow state and run records
+.aia-run.json
+.aia-conventions.json
+.remember/
+
+# Configuration for checkers that are not part of this project
+config/markdown-governance.policy.json
+
+# Capture and prompt material
+Captures/
+*.capture.md
+
+# Provenance token list. Never committed anywhere, by design: a checker
+# committed alongside the strings it forbids publishes what it exists to
+# suppress.
+.provenance-tokens

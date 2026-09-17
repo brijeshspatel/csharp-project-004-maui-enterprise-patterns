@@ -35,7 +35,7 @@
     -->
   </PropertyGroup>
 
-  <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('.Demo'))">
+  <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('.Demo')) and $([MSBuild]::IsOSPlatform('windows'))">
     <!--
       .Demo (MAUI app) projects redirect obj/ and bin/ to a short path outside this deeply
       nested workspace tree. Verified by execution as the actual fix, not a guess: the
@@ -49,6 +49,13 @@
       folder shorter bought some margin but is not durable as pattern names grow; redirecting
       the intermediate path is the standard, permanent fix for this class of Windows/Android
       build failure.
+
+      Conditioned on Windows, deliberately. A drive-letter path means nothing to macOS or Linux,
+      where MSBuild would resolve it relative to the project and create a folder named after the
+      drive inside every .Demo directory. Those hosts keep the default obj/ and bin/, and the
+      ceiling this works around is a Windows and aapt2 problem in the first place. Two checkouts
+      of this repository on one Windows machine share this cache; clear it for a genuinely fresh
+      build.
     -->
     <BaseIntermediateOutputPath>C:\maui-obj\$(MSBuildProjectName)\obj\</BaseIntermediateOutputPath>
     <BaseOutputPath>C:\maui-obj\$(MSBuildProjectName)\bin\</BaseOutputPath>

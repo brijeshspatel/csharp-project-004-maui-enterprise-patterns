@@ -79,6 +79,10 @@ dotnet build
 Requires the .NET SDK with the `android`, `ios`, `maccatalyst` and `maui-windows` workloads
 installed (`dotnet workload list`).
 
+**A first build from nothing took fifteen minutes** on the machine that produced this repository:
+thirteen demonstrations, each built for four platform heads. It has not hung. Subsequent builds are
+incremental and fast.
+
 ## Testing
 
 ```bash
@@ -115,7 +119,10 @@ every entry is testable without a device.
 This repository follows the same governance, documentation and engineering conventions as its
 sibling repositories in this account (`csharp-project-001-gof-design-patterns`,
 `csharp-project-002-cloud-design-patterns`, `csharp-project-003-solid-principles`), adapted where
-.NET MAUI requires a documented difference. See `config/markdown-governance.policy.json`.
+.NET MAUI requires a documented difference. The checkers that enforce those conventions run from
+the workspace that produced this repository and are not part of it; what they enforce is visible in
+the result — every pattern README follows the section order the catalogue defines, and the
+catalogue is the contract.
 
 ## Licence
 
