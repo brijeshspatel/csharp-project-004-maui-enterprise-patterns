@@ -8,6 +8,14 @@
   <Folder Name="/patterns/CommandBehavior/tests/">
     <Project Path="patterns/CommandBehavior/tests/CommandBehavior.Core.Tests/CommandBehavior.Core.Tests.csproj" />
   </Folder>
+  <Folder Name="/patterns/Messaging/" />
+  <Folder Name="/patterns/Messaging/src/">
+    <Project Path="patterns/Messaging/src/Messaging.Core/Messaging.Core.csproj" />
+    <Project Path="patterns/Messaging/src/Messaging.Demo/Messaging.Demo.csproj" />
+  </Folder>
+  <Folder Name="/patterns/Messaging/tests/">
+    <Project Path="patterns/Messaging/tests/Messaging.Core.Tests/Messaging.Core.Tests.csproj" />
+  </Folder>
   <Folder Name="/patterns/Mvvm/" />
   <Folder Name="/patterns/Mvvm/src/">
     <Project Path="patterns/Mvvm/src/Mvvm.Core/Mvvm.Core.csproj" />

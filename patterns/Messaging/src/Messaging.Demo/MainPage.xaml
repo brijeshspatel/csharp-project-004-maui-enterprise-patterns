@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Messaging.Demo.MainPage"
+             Title="Orders">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,20"
+            Spacing="20">
+
+            <!-- The publisher. It holds no reference to either region below. -->
+            <VerticalStackLayout Spacing="8">
+                <Label
+                    Text="Cancel an order"
+                    Style="{StaticResource SubHeadline}" />
+                <Label Text="{Binding Detail.Order.CustomerReference, StringFormat='Order {0}'}" />
+                <Entry
+                    Text="{Binding Detail.CancellationReason, Mode=TwoWay}"
+                    Placeholder="Reason for cancellation" />
+                <Button
+                    Text="Cancel order"
+                    Command="{Binding Detail.CancelOrderCommand}"
+                    HorizontalOptions="Fill" />
+            </VerticalStackLayout>
+
+            <!-- Recipient one. It learns of the cancellation only from the message. -->
+            <VerticalStackLayout Spacing="8">
+                <Label
+                    Text="Order list"
+                    Style="{StaticResource SubHeadline}" />
+                <CollectionView ItemsSource="{Binding List.Orders}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <HorizontalStackLayout Padding="0,5" Spacing="10">
+                                <Label Text="{Binding CustomerReference}" WidthRequest="120" />
+                                <Label Text="{Binding Status}" />
+                            </HorizontalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+
+            <!-- Recipient two. It knows nothing of recipient one, and both change from one tap. -->
+            <VerticalStackLayout Spacing="8">
+                <Label
+                    Text="Outstanding work"
+                    Style="{StaticResource SubHeadline}" />
+                <Label Text="{Binding OutstandingWork.OutstandingCount, StringFormat='{0} order(s) outstanding'}" />
+                <Label Text="{Binding OutstandingWork.CommittedValue, StringFormat='{0:C} committed'}" />
+                <Label Text="{Binding OutstandingWork.LastCancellationReason, StringFormat='Last cancellation: {0}'}" />
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
