@@ -42,20 +42,20 @@ invoked through `CommunityToolkit.Maui`'s `EventToCommandBehavior`, attached to 
 <Button Text="Clear" Command="{Binding ClearFilterCommand}" />
 ```
 
-The behavior listens for `TextChanged`, and on each occurrence invokes `ApplyFilterCommand` exactly
+The behaviour listens for `TextChanged`, and on each occurrence invokes `ApplyFilterCommand` exactly
 as if the `Entry` had a native `Command` property — no code-behind, no event handler.
 
 ## The manual alternative
 
-The reference material shows the pre-behavior alternative directly: a `Behavior<T>` subclass
+The reference material shows the pre-behaviour alternative directly: a `Behavior<T>` subclass
 overriding `OnAttachedTo`/`OnDetachingFrom` to manually register and unregister a .NET event
 handler, then invoking the bound command from that handler. `EventToCommandBehavior` (from the
 .NET MAUI Community Toolkit) is that exact pattern, generalised and packaged for reuse — writing a
-bespoke behavior per event name is no longer necessary for the common case.
+bespoke behaviour per event name is no longer necessary for the common case.
 
 ## Why the idiomatic approach is preferable
 
-A hand-written attached behavior must get event subscription, unsubscription and command
+A hand-written attached behaviour must get event subscription, unsubscription and command
 invocation right for every event it targets; `EventToCommandBehavior` gets this once, and every
 consuming view supplies only the event name and the command — the two facts specific to that
 screen.
@@ -72,7 +72,7 @@ sequenceDiagram
     Behavior->>VM: ApplyFilterCommand.Execute()
     VM-->>View: FilteredOrders updated
 
-    View->>VM: Button clicked -> ClearFilterCommand.Execute() (direct binding, no behavior)
+    View->>VM: Button clicked -> ClearFilterCommand.Execute() (direct binding, no behaviour)
     VM-->>View: FilterText reset, FilteredOrders shows all
 ```
 
@@ -88,23 +88,23 @@ introduces (`Directory.Packages.props`, verified by execution before adoption).
 
 Any control interaction that maps naturally to a command — which is most interactions in an
 enterprise screen. Prefer the direct `Command` binding where the control supports it; reach for a
-behavior only when it does not.
+behaviour only when it does not.
 
 ## When not to — over-application
 
-Do not wrap every event in a behavior reflexively. Where a control already exposes `Command`
-(`Button`, `TapGestureRecognizer`), binding directly is simpler and needs no behavior at all —
+Do not wrap every event in a behaviour reflexively. Where a control already exposes `Command`
+(`Button`, `TapGestureRecognizer`), binding directly is simpler and needs no behaviour at all —
 `ClearFilterCommand` demonstrates exactly that restraint.
 
 ## Production-readiness considerations
 
 **Testability** — proven directly: both commands are exercised with no UI, no platform head.
 **Maintainability** — `EventToCommandBehavior` is reused rather than hand-rolled per event, so a
-second event-to-command bridge elsewhere in this repository needs no new behavior class.
+second event-to-command bridge elsewhere in this repository needs no new behaviour class.
 
 ## Trade-offs
 
-A behavior adds one more moving part (the `EventName` string is not compile-time checked against
+A behaviour adds one more moving part (the `EventName` string is not compile-time checked against
 the control's actual events) compared with a control that natively exposes `Command` — a
 misspelled event name fails silently at runtime rather than at compile time.
 
@@ -112,7 +112,7 @@ misspelled event name fails silently at runtime rather than at compile time.
 
 Builds on Model-View-ViewModel (this catalogue's first entry) — the view model shape is identical;
 only the binding mechanism differs per control. Conceptually related to the **Adapter** pattern
-from the Gang of Four catalogue (a behavior adapts an event-based API to a command-based one) —
+from the Gang of Four catalogue (a behaviour adapts an event-based API to a command-based one) —
 described here in prose only; no reference exists from this repository to
 `csharp-project-001-gof-design-patterns`.
 
