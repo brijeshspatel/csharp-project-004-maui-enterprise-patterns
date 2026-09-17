@@ -32,6 +32,14 @@
   <Folder Name="/patterns/Validation/tests/">
     <Project Path="patterns/Validation/tests/Validation.Core.Tests/Validation.Core.Tests.csproj" />
   </Folder>
+  <Folder Name="/patterns/DependencyInjection/" />
+  <Folder Name="/patterns/DependencyInjection/src/">
+    <Project Path="patterns/DependencyInjection/src/DependencyInjection.Core/DependencyInjection.Core.csproj" />
+    <Project Path="patterns/DependencyInjection/src/DependencyInjection.Demo/DependencyInjection.Demo.csproj" />
+  </Folder>
+  <Folder Name="/patterns/DependencyInjection/tests/">
+    <Project Path="patterns/DependencyInjection/tests/DependencyInjection.Core.Tests/DependencyInjection.Core.Tests.csproj" />
+  </Folder>
   <Folder Name="/patterns/Mvvm/" />
   <Folder Name="/patterns/Mvvm/src/">
     <Project Path="patterns/Mvvm/src/Mvvm.Core/Mvvm.Core.csproj" />

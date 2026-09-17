@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <!--
+    No container package here either. Every test constructs its subject by hand, which is the
+    property constructor injection delivers.
+  -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\DependencyInjection.Core\DependencyInjection.Core.csproj" />
+  </ItemGroup>
+
+</Project>

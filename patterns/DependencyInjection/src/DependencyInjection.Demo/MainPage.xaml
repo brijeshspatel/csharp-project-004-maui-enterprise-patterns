@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:core="clr-namespace:DependencyInjection.Core;assembly=DependencyInjection.Core"
+             x:Class="DependencyInjection.Demo.MainPage"
+             x:Name="Root"
+             Title="Order audit">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,20" Spacing="15">
+
+            <Label Text="Record an order" Style="{StaticResource SubHeadline}" />
+
+            <Label Text="Neither screen creates the audit log. Both are given the same one."
+                   FontSize="13" />
+
+            <Entry Placeholder="Order description"
+                   Text="{Binding Source={x:Reference Root}, Path=Entry.Description, Mode=TwoWay}" />
+
+            <Button Text="Record"
+                    Command="{Binding Source={x:Reference Root}, Path=Entry.RecordOrderCommand}" />
+
+            <Label Text="Audit trail" Style="{StaticResource SubHeadline}" />
+
+            <Button Text="Refresh"
+                    Command="{Binding Source={x:Reference Root}, Path=Trail.RefreshCommand}" />
+
+            <CollectionView ItemsSource="{Binding Source={x:Reference Root}, Path=Trail.Entries}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="core:AuditEntry">
+                        <HorizontalStackLayout Padding="0,4" Spacing="10">
+                            <Label Text="{Binding RecordedAt, StringFormat='{0:HH:mm:ss}'}" WidthRequest="80" />
+                            <Label Text="{Binding Description}" />
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
