@@ -103,12 +103,17 @@ of its claims were verified by execution and which were not.
 ```
 patterns/<Pattern>/
 ├── README.md     what the pattern is, how this implementation works, when not to use it
-├── docs/         supporting material
 ├── src/
 │   ├── <Pattern>.Core/   platform-agnostic: view models, services, business logic
 │   └── <Pattern>.Demo/   the runnable demonstration
 └── tests/                xUnit, against .Core only
 ```
+
+**Each entry is one README, not two documents.** The sibling repositories in this account split a
+pattern between a README and a separate `docs/<name>-in-practice.md`; this project does not, because
+its entries are longer and the split would put the reasoning a reader needs at the point of decision
+in a different file. An entry's trade-offs, its failure modes and what was deliberately not built
+are all in its README.
 
 A `.Core` project targets plain `net10.0` and never references .NET MAUI. Where an entry needs a
 platform type, `.Core` declares its own abstraction and `.Demo` adapts the platform's — which is why
