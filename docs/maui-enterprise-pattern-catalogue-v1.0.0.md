@@ -1,15 +1,3 @@
----
-doc_id: maui-enterprise-pattern-catalogue
-title: Enterprise .NET MAUI pattern catalogue
-type: index
-version: 1.0.0
-status: active
-created: 2026-08-22
-updated: 2026-09-17
-owner: Brijesh Patel
-change_summary: Thirteen entries across five categories. All thirteen are implemented; no candidates remain. All five categories are complete. The version stays 1.0.0 deliberately because the filename carries it, and both README.md and tools/pattern_relationship_check.py cite that path.
----
-
 # Enterprise .NET MAUI pattern catalogue
 
 The contract for this repository. It records which patterns exist, how they are grouped, the gloss
